@@ -30,6 +30,38 @@
                 filter: '',
                 easing: 'swing',
             });
+            
+            $('.more').click(function(){
+                var parent = $(this).parents('.description'),
+                    min = parent.find(".min-description"),
+                    full = parent.find(".full-description");
+                
+                min.hide();
+                full.slideDown(0);
+                $('.min', parent).show().css({
+                    display: "block"
+                });
+                $('.more', parent).hide();
+                
+                return false;
+            });
+            
+            $('.min').on('click', function(){
+                var parent = $(this).parents('.description'),
+                    min = parent.find(".min-description"),
+                    full = parent.find(".full-description");
+                
+                var $this = $(this);
+                
+                full.slideUp(0, function(){
+                    min.show();
+                    $('.min', parent).hide();
+                    $('.more', parent).show();
+                });
+                
+                
+                return false;
+            });
         });
         </script>
 </head>

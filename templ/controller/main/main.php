@@ -70,7 +70,6 @@
                         </div>
 
                 <div class="promo-block">
-
                         <h4><a id="menu3" class="perma-anchor"></a>Отзывы</h4>
                         <? foreach ($reviews as $Review) {
                             echo $this->render("main/review", array(
