@@ -72,9 +72,12 @@
                 <div class="promo-block">
 
                         <h4><a id="menu3" class="perma-anchor"></a>Отзывы</h4>
-
-
-                        <div class="review">
+                        <? foreach ($reviews as $Review) {
+                            echo $this->render("main/review", array(
+                                "Review" => $Review,
+                            ));
+                        } ?>
+                        <!--<div class="review">
                                 <img src="round_photo_2.png">
                                 <div class="description">
                                         <h5>Дима</h5>
@@ -90,7 +93,7 @@
                                         Отличный педагог,легко находящий подход к людям,как к взрослым ,так и к совсем юным ученикам. Объясняет материал простым и доступным языком. Интересно и весело. Появляется желание играть и играть ,совершенствуясь с каждым днем. Пожалуй,я бы не стала учиться у другого преподавателя. 
                                         <a href="#" class="more"><i>↑</i>Свернуть</a>
                                 </div>
-                        </div>
+                        </div>-->
                 </div>
 
                 <div class="separator">

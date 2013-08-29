@@ -1,4 +1,5 @@
 <?php
+require_once '/class/Review.php';
 
 class mainController extends Controller{
     public function __construct() {
@@ -23,8 +24,58 @@ class mainController extends Controller{
             }
         }
         
+        
+        
+        $all_id = Review::getAllId();
+        $reviews_id = array();
+        
+        if (count($all_id) > 0) {
+            $first_id = $all_id[rand(0, count($all_id)-1)];
+            $reviews_id[] = $first_id;
+            $second_id = -1;
+        } else {
+            $first_id = -1;
+            $second_id = -1;
+        }
+        
+        if (count($all_id) > 1) {
+            do {
+                $second_id = $all_id[rand(0, count($all_id)-1)];
+            } while($second_id == $first_id);
+            $reviews_id[] = $second_id;
+        } else {
+            if (count($all_id) == 1) {
+                $second_id = -1;
+            }
+        }
+        
+        if($reviews_id) {
+            $Reviews = $this->getReviews($reviews_id);
+        } else {
+            $Reviews = array();
+        }
+        
         echo $this->render("main/main", array(
-            "slider" => $slider_templ
+            "slider" => $slider_templ,
+            "reviews" => $Reviews,
         ));
+    }
+
+    /**
+     * 
+     * @param array $reviews_id
+     * @return Review[]
+     */
+    private function getReviews(array $reviews_id) {
+        $reviews = array();
+        foreach ($reviews_id as $review_id) {
+            $reviews[] = $this->getReview($review_id);
+        }
+        return $reviews;
+    }
+    
+    
+    private function getReview($id) {
+        return new Review($id);
     }
 }
