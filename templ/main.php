@@ -19,9 +19,9 @@
  
         <script>
         $(function(){
-            $('#nav').onePageNav({
+            /*$('#nav').onePageNav({
 
-            });
+            });*/
         });
         </script>
 </head>
