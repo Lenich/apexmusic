@@ -143,6 +143,15 @@ class Review {
         return $this->description;
     }
     
+    public function getMinDescription($count = 250) {
+        mb_internal_encoding("UTF-8");
+        return mb_substr($this->getDescription(), 0, $count);
+    }
+    
+    public function getDiffDescription($count = 250) {
+        return str_replace($this->getMinDescription($count), "", $this->getDescription());
+    }
+
     /**
      * @return string
      */
