@@ -58,8 +58,8 @@
                                 <img src="separator2.png">
                         </div>
 
-                <div class="about-block" id="menu2">
-                        <h4>О преподавателе:</h4>
+                <div class="about-block">
+                        <h4><a id="menu2" class="perma-anchor"></a>О преподавателе:</h4>
                                 <p>
                                         Я светлана, вот майя фото! азазазаз!
                                 </p>
@@ -69,9 +69,9 @@
                                 <img src="separator2.png">
                         </div>
 
-                <div class="promo-block" id="menu3">
+                <div class="promo-block">
 
-                        <h4><a name="menu1" class="perma-anchor"></a>Отзывы</h4>
+                        <h4><a id="menu3" class="perma-anchor"></a>Отзывы</h4>
 
 
                         <div class="review">
@@ -97,8 +97,8 @@
                         <img src="separator2.png">
                 </div>
 
-                <div class="contacts-block" id="menu4">
-                        <h4><a name="menu4" class="perma-anchor"></a>Контакты</h4>
+                <div class="contacts-block" >
+                        <h4><a id="menu4" class="perma-anchor"></a>Контакты</h4>
                                 <h5>Телефон:</h5>
                                         +7 (905) 918-62-98 - Софья Александровна<br>
                                 <h5>Адрес:</h5>
