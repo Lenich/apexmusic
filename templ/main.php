@@ -22,7 +22,13 @@
         <script>
         $(function(){
             $('#nav').onePageNav({
-
+                currentClass: 'current',
+                changeHash: false,
+                scrollSpeed: 750,
+                scrollOffset: 170,
+                scrollThreshold: 0.1,
+                filter: '',
+                easing: 'swing',
             });
         });
         </script>
