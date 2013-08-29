@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.container {
+/*	width: 978px;*/
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container+.container
+{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.grid33, .grid66, .grid50, .grid25 {
+/*	float: left;
+	margin-left: 30px;*/
+	float: left;
+/*	background-color: #FFCECE;*/ /* Background color temp test*/
+}
+.grid50 {
+	width:50%
+}
+.grid33 {
+	width: 33.3%;
+}
+.grid66 {
+	width: 66%;
+}
+.grid25 {
+	width: 25%;
+}
+
+.first {
+	margin-left: 0;
+	clear: left;
+}

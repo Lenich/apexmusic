@@ -1,0 +1,13 @@
+html {
+     overflow-y: scroll;
+}
+
+body {
+    font-size: 13pt;   
+}
+
+#body-wrapper {
+    width: 900px;
+    margin: 10 auto 0 auto;
+}
+

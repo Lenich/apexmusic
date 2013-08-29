@@ -1,0 +1,26 @@
+.carousel
+{
+	background-color: #000000;
+	line-height: 0em;
+	/*padding: 0em 1.5em;*/
+}
+
+.carousel .images {
+	max-height: 310px;
+	height: 310px;
+	overflow:hidden;
+	vertical-align: middle;
+}
+
+ul.carousel li
+{
+	display: inline-block;
+	color: #FFFFFF;
+	margin: 0em 0.2em;
+	font-size: 30px;
+	line-height: 1.7em;
+}
+
+.carousel ul.nav li{
+	cursor: pointer;
+}
