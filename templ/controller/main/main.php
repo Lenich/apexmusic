@@ -1,3 +1,4 @@
+<?=$popup->renderPopup();?>
 <div id="wrapper">
         <div class="header" id="menu1">
                 <div class="left">
@@ -9,6 +10,13 @@
                         <span class="phone-description">Позвони мне, няша ;D
                                 <a href="#">Записаться на сеанс гитаротерапии</a>
                         </span>
+                        <script>
+                        $(".phone-description a").click(function(){
+                            $('.popup-wraper').show();
+                            $('.popup').slideDown(500);
+                            return false;
+                        });
+                        </script>
                 </div>
                 <div class="clear"></div>
         </div>
