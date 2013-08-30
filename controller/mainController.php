@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/Review.php';
 require_once $_SERVER["DOCUMENT_ROOT"].'/class/PopupSignup.php';
-
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/smtp.php';
 class mainController extends Controller{
     public function __construct() {
         parent::__construct();
@@ -59,11 +59,9 @@ class mainController extends Controller{
         $Popup = new PopupSignup(
                 "popup/signup", 
                 "Запишись на урок!", 
-                $this->render("popup/signupBody", array(
-                    
-                ))
+                $this->render("popup/signupBody", array())
         );
-        
+
         echo $this->render("main/main", array(
             "slider" => $slider_templ,
             "reviews" => $Reviews,
@@ -82,28 +80,66 @@ class mainController extends Controller{
         $name = mysql_real_escape_string($_POST['myName']);
         $old = mysql_real_escape_string($_POST['myOld']);
         $subj = mysql_real_escape_string($_POST['mySubj']);
-        if(in_array($subj, $all_subj)) {
-            $subj = $all_subj[$subj];
-        } else {
-            $subj = "*не выбран предмет*";
-        }
+       
+        
         $phone = mysql_real_escape_string($_POST['myPhone']);
         $other = mysql_real_escape_string($_POST['myOther']);
         
-        $options = $this->getOptions();
+        $name = $name ? $name : "*имя не указано*";
+        $old = $old ? $old : "*Возраст не указан*";
+        $phone= $phone ? $phone : "*телефон не указан*";
         
+        $options = $this->getOptions();
+        $dc = "CP1251";
+        $sc = "KOI-8";
         $mail = $options['email']->value; 
-        $Bubj1 = sprintf($options['title_mail']->value, $name); 
-        $mess1 = sprintf($options['body_mail']->value, $name, $old, $subj, $phone, $other); 
-        $head1 = sprintf($options['title_mail']->value, $name);
-
-        if(mail($mail, $Bubj1, $mess1, $head1, sendmail)) {
+        $title = sprintf($options['title_mail']->value, $name); 
+        $mess = sprintf($options['body_mail']->value, $name, $old, $subj, $phone, $other); 
+ 
+        if($this->send_mime_mail("Apexmusic site", "yakudgm@gmail.com", "", $mail, 'UTF-8', 'KOI8-R', $title, $mess)) {
             echo 1;
         } else {
             echo 0;
         }
     }
-    
+
+    function send_mime_mail($name_from, // имя отправителя
+                        $email_from, // email отправителя
+                        $name_to, // имя получателя
+                        $email_to, // email получателя
+                        $data_charset, // кодировка переданных данных
+                        $send_charset, // кодировка письма
+                        $subject, // тема письма
+                        $body, // текст письма
+                        $html = FALSE, // письмо в виде html или обычного текста
+                        $reply_to = FALSE
+                        ) {
+        $to = $this->mime_header_encode($name_to, $data_charset, $send_charset)
+                       . ' <' . $email_to . '>';
+        $subject = $this->mime_header_encode($subject, $data_charset, $send_charset);
+        $from =  $this->mime_header_encode($name_from, $data_charset, $send_charset)
+                           .' <' . $email_from . '>';
+        if($data_charset != $send_charset) {
+          $subject = iconv($data_charset, $send_charset, $subject);
+          $body = iconv($data_charset, $send_charset, $body);
+        }
+        $headers = "From: $from\r\n";
+        $type = ($html) ? 'html' : 'plain';
+        $headers .= "Content-type: text/$type; charset=$send_charset\r\n";
+        $headers .= "Mime-Version: 1.0\r\n";
+        if ($reply_to) {
+            $headers .= "Reply-To: $reply_to";
+        }
+        return mail($to, $subject, $body, $headers);
+      }
+
+      function mime_header_encode($str, $data_charset, $send_charset) {
+        if($data_charset != $send_charset) {
+          $str = iconv($data_charset, $send_charset, $str);
+        }
+        return '=?' . $send_charset . '?B?' . base64_encode($str) . '?=';
+      }
+
     private function getOptions() {
         $query = "SELECT * FROM `options` ORDER BY `num` ASC ";
         $res = mysql_query($query);

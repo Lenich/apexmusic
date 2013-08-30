@@ -27,7 +27,7 @@ class Controller {
         }
         
         ob_start();
-        include "/templ/controller/{$template}.php";
+        include "./templ/controller/{$template}.php";
         return ob_get_clean();        
     }
     
