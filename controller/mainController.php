@@ -1,5 +1,6 @@
 <?php
-require_once '/class/Review.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/Review.php';
+require_once $_SERVER["DOCUMENT_ROOT"].'/class/PopupSignup.php';
 
 class mainController extends Controller{
     public function __construct() {
@@ -55,10 +56,62 @@ class mainController extends Controller{
             $Reviews = array();
         }
         
+        $Popup = new PopupSignup(
+                "popup/signup", 
+                "Запишись на урок!", 
+                $this->render("popup/signupBody", array(
+                    
+                ))
+        );
+        
         echo $this->render("main/main", array(
             "slider" => $slider_templ,
             "reviews" => $Reviews,
+            "popup" => $Popup,
         ));
+    }
+    
+    public function signUp() {
+        $this->is_ajax = true;
+        $all_subj = array(
+            1 => "Гитара",
+            2 => "Вокал",
+            3 => "Фортепиано",
+            4 => "Общая подготовка",
+        );
+        $name = mysql_real_escape_string($_POST['myName']);
+        $old = mysql_real_escape_string($_POST['myOld']);
+        $subj = mysql_real_escape_string($_POST['mySubj']);
+        if(in_array($subj, $all_subj)) {
+            $subj = $all_subj[$subj];
+        } else {
+            $subj = "*не выбран предмет*";
+        }
+        $phone = mysql_real_escape_string($_POST['myPhone']);
+        $other = mysql_real_escape_string($_POST['myOther']);
+        
+        $options = $this->getOptions();
+        
+        $mail = $options['email']->value; 
+        $Bubj1 = sprintf($options['title_mail']->value, $name); 
+        $mess1 = sprintf($options['body_mail']->value, $name, $old, $subj, $phone, $other); 
+        $head1 = sprintf($options['title_mail']->value, $name);
+
+        if(mail($mail, $Bubj1, $mess1, $head1, sendmail)) {
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }
+    
+    private function getOptions() {
+        $query = "SELECT * FROM `options` ORDER BY `num` ASC ";
+        $res = mysql_query($query);
+        $responce = array();
+        while($row = mysql_fetch_object($res)) {
+            $responce[$row->variable] = $row;
+        }
+        return $responce;
     }
 
     /**

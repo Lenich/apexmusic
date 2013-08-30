@@ -1,3 +1,4 @@
+<?=$popup->renderPopup();?>
 <div id="wrapper">
         <div class="header" id="menu1">
                 <div class="left">

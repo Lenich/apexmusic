@@ -1,8 +1,13 @@
 <? foreach ($variable as $key => $var): ?>
 <div>
     <h4><?=$var->description?></h4>
-    <input type="<?=$var->type?>" name="<?=$var->type?>" value="<?=$var->value?>"> 
-    <i class="icon-hdd save" data-element="<?=$var->type?>" style="cursor: pointer;"></i> 
+    <? if($var->type == "textarea") :?>
+    <textarea name="<?=$var->variable?>" style="width: 450px; height: 120px;"><?=$var->value?></textarea>
+    <? else:?>
+        <input type="<?=$var->type?>" name="<?=$var->variable?>" value="<?=$var->value?>"> 
+    <? endif;?>
+    
+    <i class="icon-hdd save" data-element="<?=$var->variable?>" style="cursor: pointer;"></i> 
     <i class="icon-ok" style="opacity: 0;"></i>
 </div>
 <? endforeach;?>

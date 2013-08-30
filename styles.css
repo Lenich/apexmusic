@@ -441,3 +441,48 @@ h5 {padding: 0; margin: 0; line-height: 1.6em; font-size: 20px; font-weight: 400
 .min {
     display: none;
 }
+
+/* POPUP */
+.popup-wraper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    background-color: black;
+    z-index: 10000;
+}
+.popup {
+    z-index: 10001;
+    width: 600px;
+    padding: 20px;
+    left: 50%;
+    top: 100px;
+    margin-left: -300px;
+    position: fixed;
+    background-color: #FFFFFF;
+    border: 2px solid #F1D4AF;
+}
+.popup input, select, select option {
+    font-family: Cambria, Georgia, Times, “Times New Roman”, serif;
+    font-size: 14px;
+    line-height: 0em;
+    color:#222; 
+}
+
+.popup input[name=myOld] {
+    width: 32px;
+}
+.popup input[name=myOld] {
+    width: 32px;
+}
+.popup textarea {
+    width: 100%;
+    height: 100px;
+}
+
+.popup .signUp{
+    padding: 10px;
+    
+}

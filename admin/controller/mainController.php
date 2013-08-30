@@ -9,7 +9,7 @@ class mainController extends Controller{
         mysql_query("SET NAMES utf8");
         mysql_query("SET COLLATION_CONNECTION=utf8_bin");
         
-        $query = "SELECT * FROM `options`";
+        $query = "SELECT * FROM `options` ORDER BY `num` ASC ";
         $res = mysql_query($query);
         $responce = array();
         while($row = mysql_fetch_object($res)) {
