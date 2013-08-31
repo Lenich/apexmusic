@@ -34,4 +34,9 @@ class mainController extends Controller{
         
         echo $err ? $err : 1;
     }
+    
+    public function auth() {
+        
+        echo $this->render("auth");
+    }
 }
