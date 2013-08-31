@@ -33,7 +33,6 @@
         <div class="content">
                 <div class="promo-block">
                         <img src="/assets/img/karousel.png">
-
                         <p>
                                 <center>
                                 <h4>Вы любите музыку и мечтаете научиться играть?</h4>
