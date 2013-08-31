@@ -113,6 +113,28 @@
                                 <script charset="utf-8" type="text/javascript" src="http://firmsonmap.api.2gis.ru/js/DGWidgetLoader.js"></script>
                                 <script charset="utf-8" type="text/javascript">new DGWidgetLoader({"borderColor":"#a3a3a3","width":"900","height":"600","wid":"91ad6500ea24960d85e03cec73c894ea","pos":{"lon":"83.093571592358","lat":"54.849791519363","zoom":"17"},"opt":{"ref":"hidden","card":["name"],"city":"novosibirsk"},"org":[{"id":"141265769422196"}]});</script>
                                 <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>          
+                                <div id="noscroll" style="width: 0px;
+                                            height: 600px;
+                                            opacity: 0;
+                                            position: absolute;
+                                            background-color: black;
+                                            margin-top: -610px;"></div>
+                                <script>
+                                    $(function(){
+                                        $(window).scroll(function () {
+                                            $("#noscroll").stop().css({
+                                                width: "900px",
+                                            }).animate({
+                                                opacity: "901px",
+                                            }, 500, function(){
+                                                 $("#noscroll").css({
+                                                    width: "0",
+                                                })
+                                            });
+                                          });
+                                    })
+                                
+                                </script>
                 </div>
 
                 <div class="wide-block">
