@@ -2,4 +2,4 @@ apexmusic
 =========
 
 Apexmusic site
-http://apex-musec.ru
+http://apex-music.ru

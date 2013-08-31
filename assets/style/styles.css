@@ -403,7 +403,7 @@ h4
 
 .phone{	font-size: 24px;display: block; font-weight: 300;}
 .phone-description {font-size: 14px; font-weight: 300;}
-.phone-description a {display: block; text-decoration: none; border-bottom: 1px dashed; font-weight: 300; padding-top:0.1em;line-height: 1.4em;}
+a.signUpLink {font-size: 16px; font-weight: 300; text-decoration: none; border-bottom: 1px dashed; font-weight: 300; padding-top:0em;line-height: 1.4em;}
 
 .header
 {

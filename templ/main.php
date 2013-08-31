@@ -21,7 +21,7 @@
             $('#nav').onePageNav({
                 currentClass: 'current',
                 changeHash: false,
-                scrollSpeed: 750,
+                scrollSpeed: 500,
                 scrollOffset: 170,
                 scrollThreshold: 0.1,
                 filter: '',

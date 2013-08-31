@@ -34,7 +34,7 @@
 	 		}).stop().animate({
 	 			"width": "1030px",
 	 			"margin-left" : "-15px"
-	 		}, 1000, "easeOutBounce");
+	 		}, 1000);
 	 	}, function (elem) {
 	 		elem.removeClass("floatmenu");
 	 	});

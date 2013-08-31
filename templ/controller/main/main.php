@@ -7,13 +7,12 @@
                 </div>
                 <div class="right">
                         <span class="phone">+7 (905) 918-62-98</span>
-                        <span class="phone-description">Позвони мне, няша ;D
-                                <a href="#">Записаться на сеанс гитаротерапии</a>
-                        </span>
+                        <span class="phone-description">Звонить можно круглосуточно ;D</span><br>
+                        <a href="#" class="signUpLink">Записаться</a>
                         <script>
-                        $(".phone-description a").click(function(){
+                        $("a.signUpLink").click(function(){
                             $('.popup-wraper').show();
-                            $('.popup').slideDown(500);
+                            $('.popup').show().css({opacity: 0}).animate({opacity: 1}, 700);
                             return false;
                         });
                         </script>
@@ -24,7 +23,7 @@
                 <div id="mainmenudiv">
                         <ul class="mainmenu nav" id="nav">
                                 <li class="current"><a href="#menu1">«Главная»</a></li> <span>♪</span>
-                                <li><a href="#menu2">О преподавателе</a></li> <span>♪</span>
+                                <li><a href="#menu2">О нас</a></li> <span>♪</span>
                                 <li><a href="#menu3">Отзывы</a></li> <span>♪</span>
                                 <li><a href="#menu4">Контакты</a></li>
                         </ul>
@@ -62,18 +61,32 @@
                 </div>	
 
                         <div class="separator">
-                                <img src="separator2.png">
+                                <img src="assets/img/separator2.png">
                         </div>
 
                 <div class="about-block">
-                        <h4><a id="menu2" class="perma-anchor"></a>О преподавателе:</h4>
+                        <h4><a id="menu2" class="perma-anchor"></a>О нас:</h4>
                                 <p>
-                                        Я светлана, вот майя фото! азазазаз!
+                                        Наша студия даёт возможность пройти обучение у высококвалифицированного преподавателя с огромным педагогическим стажем.
+Совмещая глубокие знания теории музыки, свободное владение инструментом и большой опыт преподавания мы подбирем 
+программу каждому ученику, которая наиболее быстро позволит реализовать мечты владения музыкальным инструментом.
+Большое разнообразие стилей - такие как: классика, джаз, блюз, кантри, фолк, рок - которыми владеет педагог по каждому 
+инструменту, позволит вам воплотить в жизнь ваши желания именно там, где вы этого хотите.
                                 </p>
+                                <p>
+На наших занятих преподаватель научит вас строить музыкальные фразы, интонировать, читать с листа. Именно способность 
+показать свои чувства в играемом музыкальном произведении отличает музыканта от любителя. У нас вы научитесь выражать 
+свои чувства так, чтобы они надолго запечатлевались в сердцах слушающих.
+                                </p>
+                                <p>
+Доброжелательный подход и непринуждённая атмосфера занятий оставят у вас только тёплые впечатления и усилят желание
+совершенствоваться.
+                                </p>
+                                
                 </div>
 
                         <div class="separator">
-                                <img src="separator2.png">
+                                <img src="assets/img/separator2.png">
                         </div>
 
                 <div class="promo-block">
@@ -86,7 +99,7 @@
                 </div>
 
                 <div class="separator">
-                        <img src="separator2.png">
+                        <img src="assets/img/separator2.png">
                 </div>
 
                 <div class="contacts-block" >
@@ -99,9 +112,8 @@
                                 <a id="firmsonmap_biglink" href="http://maps.2gis.ru/#/?history=project/novosibirsk/center/83.093571592358,54.849791519363/zoom/17/state/widget/id/141265769422196/firms/141265769422196">Перейти к большой карте</a>
                                 <script charset="utf-8" type="text/javascript" src="http://firmsonmap.api.2gis.ru/js/DGWidgetLoader.js"></script>
                                 <script charset="utf-8" type="text/javascript">new DGWidgetLoader({"borderColor":"#a3a3a3","width":"900","height":"600","wid":"91ad6500ea24960d85e03cec73c894ea","pos":{"lon":"83.093571592358","lat":"54.849791519363","zoom":"17"},"opt":{"ref":"hidden","card":["name"],"city":"novosibirsk"},"org":[{"id":"141265769422196"}]});</script>
-                                <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+                                <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>          
                 </div>
-
 
                 <div class="wide-block">
                         <center>2013 © Стасундр, Лёнич, Йакуд</center>
