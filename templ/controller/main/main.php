@@ -32,7 +32,7 @@
         </div>
         <div class="content">
                 <div class="promo-block">
-                        <img src="karousel.png">
+                        <img src="/assets/img/karousel.png">
 
                         <p>
                                 <center>
